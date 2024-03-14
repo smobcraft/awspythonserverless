@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     name: deploy
-    runs-on: ubuntu-latest
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     env:
       NODE_VERSION: 14.x # used for installing the serverless-python-requirements dependency from NPM
     strategy:
